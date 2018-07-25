@@ -1,0 +1,8 @@
+#!/bin/sh
+VERSIONS="5.6 7.0 7.1 7.2"
+
+for v in $VERSIONS
+do
+	echo -n "php-${v}: "
+	docker run -it --rm --name php-${v}-cli -v "$PWD":/usr/src/myapp -w /usr/src/myapp php:${v}-cli php myscript.php
+done
